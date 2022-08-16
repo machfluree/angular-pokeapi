@@ -1,0 +1,43 @@
+<div style="width: auto; height: 100%;">
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <h1>Pokedex Go</h1>
+      <p>
+        Your favorite pokemons all in one place! <br>
+        <nz-tag [nzColor]="'#108ee9'">[beta] v1.0.1</nz-tag>
+      </p>
+    </div>
+  </div>
+
+  <!-- <div nz-row [nzGutter]="[25,50]" nzAlign="middle">
+    <div class="gutter-row" nz-col nzSpan="8">
+      <img
+        nz-image
+        nzSrc="./assets/img/code1.jpg"
+        style="width: 100%; height: auto"
+      />
+    </div>
+    <div class="gutter-row" nz-col nzSpan="8">
+      <h1>
+        Lorem Ipsum
+        <nz-tag [nzColor]="'#1a74ed'"><i nz-icon nzType="github" nzTheme="outline"></i> Bitbucket</nz-tag>
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt omnis
+        odit eaque ducimus ratione tempore nam delectus, aliquam unde adipisci
+        repellat vel, nobis qui doloremque culpa nemo dolorem, sit amet.
+      </p>
+    </div>
+  </div> -->
+
+  <div nz-row [nzGutter]="[25,50]" nzAlign="middle">
+    <div class="gutter-row" nz-col nzSpan="6" *ngFor="let pokemon of allPokemon; let i = index">
+      <nz-card nzHoverable style="width: auto;" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="{{pokemon.name}}" nzDescription="{{pokemon.url}}"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img style="padding: 20px;" src="{{pokemon.pokeDetails.sprites.other.dream_world.front_default}}" />
+      </ng-template>
+    </div>
+  </div>
+</div>
